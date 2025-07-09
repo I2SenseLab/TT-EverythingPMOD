@@ -74,7 +74,7 @@ Top view (component on top side, pins bent down):
 
 ### Female Header
 
-``text
+```text
                  ┌── PCB Edge ──┐
 Top view (receptacle on top side):
 
