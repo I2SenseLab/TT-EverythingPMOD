@@ -49,3 +49,15 @@
 | 45   | IT2      | unknown   |
 | 46   | IT1      | unknown   |
 | 47   | IT0      | unknown   |
+
+(Male Headers)
+OT = J1
+IOT = J3
+IT = J5
+
+(Female Headers)
+OOT = J2
+OIOT = J4
+OIT = J6
+
+
