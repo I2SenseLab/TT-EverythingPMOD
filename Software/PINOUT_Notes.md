@@ -1,54 +1,54 @@
 # Pinout Mapping
 | GPIO | NET Name | Hooked To |
 |------|----------|-----------|
-| 0    | IT7      | unknown   |
-| 1    | OT1      | unknown   |
-| 2    | OT0      | unknown   |
-| 3    | OT3      | unknown   |
-| 4    | OIT4     | unknown   |
-| 5    | OIT5     | unknown   |
-| 6    | OIT6     | unknown   |
-| 7    | OIT7     | unknown   |
-| 8    | OIOT0    | unknown   |
-| 9    | OIOT1    | unknown   |
-| 10   | OIOT2    | unknown   |
-| 11   | OIOT3    | unknown   |
-| 12   | OIOT5    | unknown   |
-| 13   | OIOT4    | unknown   |
-| 14   | OIOT7    | unknown   |
-| 15   | OIOT6    | unknown   |
-| 16   | OOT1     | unknown   |
-| 17   | OOT0     | unknown   |
-| 18   | OOT3     | unknown   |
-| 19   | OOT2     | unknown   |
-| 20   | OOT5     | unknown   |
-| 21   | OIT3     | unknown   |
-| 22   | OIT2     | unknown   |
-| 23   | OIT1     | unknown   |
-| 24   | OIT0     | unknown   |
-| 25   | OOT4     | unknown   |
-| 26   | OOT7     | unknown   |
-| 27   | OOT6     | unknown   |
-| 28   | OT6      | unknown   |
-| 29   | OT7      | unknown   |
-| 30   | OT4      | unknown   |
-| 31   | OT5      | unknown   |
-| 32   | OT2      | unknown   |
-| 33   | IOT6     | unknown   |
-| 34   | IOT7     | unknown   |
-| 35   | IOT4     | unknown   |
-| 36   | IOT5     | unknown   |
-| 37   | IOT3     | unknown   |
-| 38   | IOT2     | unknown   |
-| 39   | IOT0     | unknown   |
-| 40   | IOT1     | unknown   |
-| 41   | IT6      | unknown   |
-| 42   | IT5      | unknown   |
-| 43   | IT4      | unknown   |
-| 44   | IT3      | unknown   |
-| 45   | IT2      | unknown   |
-| 46   | IT1      | unknown   |
-| 47   | IT0      | unknown   |
+| 0    | IT7      | J5 Pin 1  |
+| 1    | OT1      | J1 Pin 7  |
+| 2    | OT0      | J1 Pin 8  |
+| 3    | OT3      | J1 Pin 5  |
+| 4    | OIT4     | J6 Pin 4  |
+| 5    | OIT5     | J6 Pin 3  |
+| 6    | OIT6     | J6 Pin 2  |
+| 7    | OIT7     | J6 Pin 1  |
+| 8    | OIOT0    | J4 Pin 8  |
+| 9    | OIOT1    | J4 Pin 7  |
+| 10   | OIOT2    | J4 Pin 6  |
+| 11   | OIOT3    | J4 Pin 5  |
+| 12   | OIOT5    | J4 Pin 3  |
+| 13   | OIOT4    | J4 Pin 4  |
+| 14   | OIOT7    | J4 Pin 1  |
+| 15   | OIOT6    | J4 Pin 2  |
+| 16   | OOT1     | J2 Pin 7  |
+| 17   | OOT0     | J2 Pin 8  |
+| 18   | OOT3     | J2 Pin 5  |
+| 19   | OOT2     | J2 Pin 6  |
+| 20   | OOT5     | J2 Pin 3  |
+| 21   | OIT3     | J6 Pin 5  |
+| 22   | OIT2     | J6 Pin 6  |
+| 23   | OIT1     | J6 Pin 7  |
+| 24   | OIT0     | J6 Pin 8  |
+| 25   | OOT4     | J2 Pin 4  |
+| 26   | OOT7     | J2 Pin 1  |
+| 27   | OOT6     | J2 Pin 2  |
+| 28   | OT6      | J1 Pin 2  |
+| 29   | OT7      | J1 Pin 1  |
+| 30   | OT4      | J1 Pin 4  |
+| 31   | OT5      | J1 Pin 3  |
+| 32   | OT2      | J1 Pin 6  |
+| 33   | IOT6     | J3 Pin 2  |
+| 34   | IOT7     | J3 Pin 1  |
+| 35   | IOT4     | J3 Pin 4  |
+| 36   | IOT5     | J3 Pin 3  |
+| 37   | IOT3     | J3 Pin 5  |
+| 38   | IOT2     | J3 Pin 6  |
+| 39   | IOT0     | J3 Pin 8  |
+| 40   | IOT1     | J3 Pin 7  |
+| 41   | IT6      | J5 Pin 2  |
+| 42   | IT5      | J5 Pin 3  |
+| 43   | IT4      | J5 Pin 4  |
+| 44   | IT3      | J5 Pin 5  |
+| 45   | IT2      | J5 Pin 6  |
+| 46   | IT1      | J5 Pin 7  |
+| 47   | IT0      | J5 Pin 8  |
 
 ## Headers
 (Male Headers)
