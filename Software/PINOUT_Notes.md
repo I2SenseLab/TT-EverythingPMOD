@@ -62,6 +62,7 @@ OIOT = J4
 OIT = J6
 
 ### Male Header
+```text
                  ┌── PCB edge ──┐
 Top view (component on top side, pins bent down):
 
@@ -69,9 +70,11 @@ Top view (component on top side, pins bent down):
  Row B  ▣1  ○3  ○5  ○7  ○9  ○11
 
                  └──────────────┘
+```
 
 ### Female Header
 
+``text
                  ┌── PCB Edge ──┐
 Top view (receptacle on top side):
 
@@ -79,7 +82,7 @@ Top view (receptacle on top side):
  Row B  ○11  ○9   ○7  ○5  ○3  ▣1
 
                  └──────────────┘
-
+```
 
 ### J1
 
