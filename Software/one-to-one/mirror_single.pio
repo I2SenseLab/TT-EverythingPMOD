@@ -1,9 +1,10 @@
 .program mirror_single
-; Reads 1 bit from a specified input pin
-; Writes it to a specified output pin
-; Run one instance per pin pair (IN → OUT)
+; Mirrors one input pin to one output pin, 1 bit per cycle
 
-loop:
-    in pins, 1      ; read 1 bit from IN pin
-    out pins, 1     ; write that bit to OUT pin
-    jmp loop
+.wrap_target
+again:                         ; ← real label
+    in  pins, 1                ; read IN pin → ISR[0]
+    mov osr, isr
+    out pins, 1                ; drive OUT pin with ISR[0]
+    jmp again                  ; loop forever
+.wrap

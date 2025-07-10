@@ -20,6 +20,17 @@ add_executable(header_mirror
     mirror.cpp          # ← the source below
 )
 
+set(PIO_FILES
+    ${CMAKE_CURRENT_LIST_DIR}/mirror_single.pio
+)
+
+foreach(pio_file ${PIO_FILES})
+    pico_generate_pio_header(header_mirror            # target that will use it
+        ${pio_file}
+        OUTPUT_DIR ${CMAKE_CURRENT_LIST_DIR})         # keep headers beside code
+    target_sources(header_mirror PRIVATE ${pio_file}) # re-build on .pio change
+endforeach()
+
 # USB printf on /dev/ttyACM0, no UART
 pico_enable_stdio_usb(header_mirror 1)
 pico_enable_stdio_uart(header_mirror 0)

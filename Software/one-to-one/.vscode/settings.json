@@ -5,5 +5,5 @@
     "cmake.configureArgs": [
         "-DPICO_BOARD=adafruit_feather_rp2350"
     ],
-    "C_Cpp.default.compilerPath": "/usr/lib64/ccache/arm-none-eabi-gcc"
+    "C_Cpp.default.compilerPath": "/usr/bin/arm-none-eabi-g++"
 }
