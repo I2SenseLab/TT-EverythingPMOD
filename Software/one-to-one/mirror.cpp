@@ -37,42 +37,32 @@ int main()
 {
     stdio_init_all();
     while (!stdio_usb_connected()) sleep_ms(10);
-    printf("RP2350 header-mirror DEBUG – %zu channels\n", PIN_CT);
+    printf("RP2350 PIO GPIO mirror – %zu channels\n", PIN_CT);
 
-    // --- watchdog: reboot if main loop stalls for >2 s ---------------------
-    constexpr uint32_t WDT_PERIOD_US = 2 * 1'000'000;   // 2 s
-    watchdog_enable(WDT_PERIOD_US, /*pause_on_debug=*/true);
-    // ----------------------------------------------------------------------
+    constexpr uint32_t WDT_PERIOD_US = 2 * 1'000'000;
+    watchdog_enable(WDT_PERIOD_US, true);
 
-    // Configure directions
-    for (size_t i = 0; i < PIN_CT; ++i) {
-        gpio_init(male_pins[i]);
-        gpio_set_dir(male_pins[i], GPIO_IN);
-        gpio_init(female_pins[i]);
-        gpio_set_dir(female_pins[i], GPIO_OUT);
-    }
+    PIO pio = pio0;
+    uint sm_in = 0, sm_out = 1;
 
-    std::array<uint8_t, PIN_CT> prev{};                 // last seen states
-    uint64_t next_snapshot = time_us_64() + 500'000;    // 500 ms
+    // Set up input SM (male header)
+    uint offset_in = pio_add_program(pio, &mirror_in_program);
+    mirror_in_program_init(pio, sm_in, offset_in, male_pins[0]);
 
+    // Set up output SM (female header)
+    uint offset_out = pio_add_program(pio, &mirror_out_program);
+    mirror_out_program_init(pio, sm_out, offset_out, female_pins[0]);
+
+    // Start both state machines
+    pio_sm_set_enabled(pio, sm_in, true);
+    pio_sm_set_enabled(pio, sm_out, true);
+
+    uint64_t next_snapshot = time_us_64() + 500'000;
     while (true) {
-        // mirror + per-pin change detection
-        for (size_t i = 0; i < PIN_CT; ++i) {
-            uint8_t val = gpio_get(male_pins[i]);
-            gpio_put(female_pins[i], val);
-            if (val != prev[i]) {
-                printf("Change: GP%-2u -> GP%-2u = %d\n",
-                       male_pins[i], female_pins[i], val);
-                prev[i] = val;
-            }
-        }
-
-        // periodic full dump
         if (time_us_64() >= next_snapshot) {
             print_snapshot();
-            next_snapshot += 500'000;                  // schedule next dump
+            next_snapshot += 500'000;
         }
-
-        watchdog_update();                             // pet the watchdog
+        watchdog_update();
     }
 }

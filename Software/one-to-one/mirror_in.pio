@@ -1,0 +1,5 @@
+.program mirror_in
+.loop:
+    in pins, 24
+    push block
+    jmp loop
