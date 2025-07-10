@@ -6,8 +6,7 @@
 #include "hardware/pio.h"
 #include "hardware/watchdog.h"
 #include "hardware/clocks.h"
-#include "mirror_in.pio.h"
-#include "mirror_out.pio.h"
+#include "mirror_single.pio.h"
 #include <array>
 #include <cstdio>
 
@@ -35,20 +34,16 @@ static void print_snapshot()
 }
 // ---------------------------------------------------------------------------
 
-void mirror_in_program_init(PIO pio, uint sm, uint offset, uint base_pin) {
-    pio_sm_config c = mirror_in_program_get_default_config(offset);
-    sm_config_set_in_pins(&c, base_pin);
-    sm_config_set_in_shift(&c, true, true, 24); // shift right, autopush, threshold 24 bits
-    pio_sm_set_consecutive_pindirs(pio, sm, base_pin, 24, false); // set as input
+void mirror_single_program_init(PIO pio, uint sm, uint offset, uint input_pin, uint output_pin) {
+    pio_sm_config c = mirror_single_program_get_default_config(offset);
+    sm_config_set_in_pins(&c, input_pin);
+    sm_config_set_out_pins(&c, output_pin, 1);
+    sm_config_set_in_shift(&c, false, false, 32);  // no shifting
+    sm_config_set_out_shift(&c, false, false, 32); // no shifting
+    pio_sm_set_consecutive_pindirs(pio, sm, input_pin, 1, false);
+    pio_sm_set_consecutive_pindirs(pio, sm, output_pin, 1, true);
     pio_sm_init(pio, sm, offset, &c);
-}
-
-void mirror_out_program_init(PIO pio, uint sm, uint offset, uint base_pin) {
-    pio_sm_config c = mirror_out_program_get_default_config(offset);
-    sm_config_set_out_pins(&c, base_pin, 24);
-    sm_config_set_out_shift(&c, true, true, 24); // shift right, autopull, threshold 24 bits
-    pio_sm_set_consecutive_pindirs(pio, sm, base_pin, 24, true); // set as output
-    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
 }
 
 int main()
@@ -60,20 +55,16 @@ int main()
     constexpr uint32_t WDT_PERIOD_US = 2 * 1'000'000;
     watchdog_enable(WDT_PERIOD_US, true);
 
+    // These are your OT0-7 and OOT0-7 pins
+    uint8_t inputs[]  = {2, 1, 32, 3, 30, 31, 28, 29};
+    uint8_t outputs[] = {17, 16, 19, 18, 25, 20, 27, 26};
+
     PIO pio = pio0;
-    uint sm_in = 0, sm_out = 1;
+    uint offset = pio_add_program(pio, &mirror_single_program);
 
-    // Set up input SM (male header)
-    uint offset_in = pio_add_program(pio, &mirror_in_program);
-    mirror_in_program_init(pio, sm_in, offset_in, male_pins[0]);
-
-    // Set up output SM (female header)
-    uint offset_out = pio_add_program(pio, &mirror_out_program);
-    mirror_out_program_init(pio, sm_out, offset_out, female_pins[0]);
-
-    // Start both state machines
-    pio_sm_set_enabled(pio, sm_in, true);
-    pio_sm_set_enabled(pio, sm_out, true);
+    for (int i = 0; i < 8; ++i) {
+        mirror_single_program_init(pio, i, offset, inputs[i], outputs[i]);
+    }
 
     uint64_t next_snapshot = time_us_64() + 500'000;
     while (true) {

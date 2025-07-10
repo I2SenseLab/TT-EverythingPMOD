@@ -1,5 +1,0 @@
-.program mirror_out
-loop:
-    pull block
-    out pins, 24
-    jmp loop
