@@ -35,6 +35,22 @@ static void print_snapshot()
 }
 // ---------------------------------------------------------------------------
 
+void mirror_in_program_init(PIO pio, uint sm, uint offset, uint base_pin) {
+    pio_sm_config c = mirror_in_program_get_default_config(offset);
+    sm_config_set_in_pins(&c, base_pin);
+    sm_config_set_in_shift(&c, true, true, 24); // shift right, autopush, threshold 24 bits
+    pio_sm_set_consecutive_pindirs(pio, sm, base_pin, 24, false); // set as input
+    pio_sm_init(pio, sm, offset, &c);
+}
+
+void mirror_out_program_init(PIO pio, uint sm, uint offset, uint base_pin) {
+    pio_sm_config c = mirror_out_program_get_default_config(offset);
+    sm_config_set_out_pins(&c, base_pin, 24);
+    sm_config_set_out_shift(&c, true, true, 24); // shift right, autopull, threshold 24 bits
+    pio_sm_set_consecutive_pindirs(pio, sm, base_pin, 24, true); // set as output
+    pio_sm_init(pio, sm, offset, &c);
+}
+
 int main()
 {
     stdio_init_all();
