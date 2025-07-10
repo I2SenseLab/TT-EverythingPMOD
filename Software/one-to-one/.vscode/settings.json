@@ -1,0 +1,9 @@
+{
+    "cmake.configureEnvironment": {
+        "PICO_SDK_PATH": "/home/santigf12/pico/pico-sdk"
+    },
+    "cmake.configureArgs": [
+        "-DPICO_BOARD=adafruit_feather_rp2350"
+    ],
+    "C_Cpp.default.compilerPath": "/usr/lib64/ccache/arm-none-eabi-gcc"
+}
