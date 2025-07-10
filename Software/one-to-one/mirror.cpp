@@ -62,9 +62,18 @@ int main()
     PIO pio = pio0;
     uint offset = pio_add_program(pio, &mirror_single_program);
 
+    PIO pios[] = {pio0, pio0, pio0, pio0, pio1, pio1, pio1, pio1};
+    uint offset0 = pio_add_program(pio0, &mirror_single_program);
+    uint offset1 = pio_add_program(pio1, &mirror_single_program);
+
     for (int i = 0; i < 8; ++i) {
-        mirror_single_program_init(pio, i, offset, inputs[i], outputs[i]);
+        PIO which = pios[i];
+        uint sm = i % 4;
+        uint offset = (which == pio0) ? offset0 : offset1;
+        mirror_single_program_init(which, sm, offset, inputs[i], outputs[i]);
     }
+
+
 
     uint64_t next_snapshot = time_us_64() + 500'000;
     while (true) {
