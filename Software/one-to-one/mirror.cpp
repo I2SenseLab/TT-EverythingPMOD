@@ -3,10 +3,12 @@
 //                    Now includes a 2-second watchdog timer.
 
 #include "pico/stdlib.h"
-#include "hardware/timer.h"       // time_us_64()
-#include "hardware/watchdog.h"    // watchdog_enable(), watchdog_update()
+#include "hardware/pio.h"
+#include "hardware/watchdog.h"
+#include "hardware/clocks.h"
+#include "mirror_in.pio.h"
+#include "mirror_out.pio.h"
 #include <array>
-#include <cstdint>
 #include <cstdio>
 
 // ----- pin tables (male → female) -----
