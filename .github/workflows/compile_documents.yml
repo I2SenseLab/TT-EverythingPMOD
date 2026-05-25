@@ -1,0 +1,27 @@
+name: Compile LaTeX Documents in Repository
+
+on: [push]
+
+jobs:
+  build_pdf:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        document:
+          - { tex-file: Article, directory: hardwarex }
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v6
+
+    - name: Compile Document
+      uses: devinatkin/latex-action/compile_latex@main
+      with:
+        tex-file: ${{ matrix.document.tex-file }}
+        directory: ${{ matrix.document.directory }}
+
+    - name: Upload PDF to Artifacts
+      uses: actions/upload-artifact@v6
+      with:
+        name: ${{ matrix.document.tex-file }} - ${{ matrix.document.directory }}
+        path: ./${{ matrix.document.directory }}/*.pdf
