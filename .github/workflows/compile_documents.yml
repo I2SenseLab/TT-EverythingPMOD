@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         document:
-          - { tex-file: Article, directory: hardwarex }
+          - { tex-file: hardwarex, directory: Article }
 
     steps:
     - name: Checkout Repository
