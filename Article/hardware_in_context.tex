@@ -1,0 +1,19 @@
+\section{Hardware in context}
+
+Tiny Tapeout is a development platform for Academics, Industry, and Hobbyests alike to develop custom silicon designs for a variety of applications.
+Their system is fully open source and is based on open source PDKs and open development tools such as XScheme and MAGIC VLSI. 
+The core concept behind Tiny Tapeout is an extension of earlier multi-project wafer (MPW) services such as those offered by organizations such as CMC. 
+Instead of ordering a wafer with multiple projects on it like in MPW, they are instead a participant in an MPW run and instead load multiple projects onto a single die within that MPW run. 
+This substantially lowers the cost bringing it into the realm of what is obtainable for an individual or low-budget labratory project. 
+They package and return a piece of silicon containing many peoples projects, with associated select circuitry to allow 8 inputs, 8 outputs, and 8 bi-direction to be routed to the outside of the chip.
+They also have a limited number of spaces which can also contain up to 8 analog pins; however, they are not relevant for our purposes. 
+Those 24 input outputs are routed to a set of 3 PMOD interfaces. 
+The board described here interacts with those 3 PMOD interfaces to allow for a combination of potential routing, and capture/ stimulation of those values. 
+
+
+To test a design one may typically add external circuits to validate that everything functions as expected. 
+This may involve both creaitng expected stimulus and capturing the output to validate it against simulation. 
+This would then require both a waveform generator and a digital logic analyzer. 
+The board here acts as an interposer. 
+This way the outputs and inputs can be captured without requiring additional tools. 
+They can also be captured while interacting with the expected output hardware. 
