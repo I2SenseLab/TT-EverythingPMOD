@@ -1,0 +1,24 @@
+\section{Validation and characterization}
+
+\textit{The Everything PMOD board was developed to simplify experimentation with Tiny Tapeout integrated circuits by providing a configurable interface between the Tiny Tapeout demonstration board and commonly available PMOD peripherals. Validation of the hardware should demonstrate that the board correctly forwards signals, enables protocol monitoring, and supports rapid integration of external hardware without requiring modifications to the Tiny Tapeout carrier board.}
+
+\textit{A representative validation experiment consists of installing a Tiny Tapeout ASIC on the demonstration board and connecting the Everything PMOD board between the demonstration board and a selected peripheral. The accompanying host software is then used to configure the desired routing or monitoring mode while exercising the integrated circuit. Signal activity can be observed and recorded to verify correct operation of both the ASIC and attached peripherals. Example applications include monitoring SPI transactions, capturing GPIO activity, verifying UART communication, and adapting the Tiny Tapeout pinout to existing PMOD modules.}
+
+\textit{Future revisions of this work should include quantitative characterization of the hardware, including measurements of signal integrity, maximum operating frequency, propagation delay through the interposer, power consumption, and communication latency between the host software and hardware. Representative screenshots of the software interface and example captures from logic analyzer experiments should also be included.}
+
+\textit{The current design provides the following capabilities and limitations:}
+
+\textit{
+\begin{itemize}
+    \item Provides a configurable interface between the Tiny Tapeout demonstration board and PMOD-compatible peripherals.
+    \item Supports rapid prototyping without requiring modifications to the Tiny Tapeout carrier board.
+    \item Enables observation and recording of digital signals for debugging and validation.
+    \item Allows signal routing and pin remapping to improve compatibility with existing hardware.
+    \item Can be adapted for a variety of experimental setups through software configuration.
+    \item Limited to the voltage levels and electrical characteristics supported by the Tiny Tapeout demonstration platform.
+    \item Performance at high digital interface speeds should be characterized in future work.
+    \item Current functionality depends on the accompanying host software, which is under active development.
+\end{itemize}
+}
+
+\textit{Future versions of this manuscript should replace the placeholder validation with quantitative measurements collected from representative experiments. Suggested characterization metrics include maximum reliable operating frequency, routing accuracy, propagation delay, communication throughput, and the performance of representative debugging workflows compared with direct wiring approaches.}
