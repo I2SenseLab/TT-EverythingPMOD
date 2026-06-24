@@ -1,0 +1,52 @@
+The complete bill of materials is provided as supplementary material and uses 
+the same designators as the schematic and PCB design files. 
+Table~\ref{tab:bom_summary} summarizes the primary purchased components used 
+in the assembled board. 
+The costs shown are based on the JLCPCB/LCSC assembly quote for a five-board 
+fabrication run and therefore include the effects of 
+minimum order quantities and assembly purchasing constraints. 
+For this reason, the listed quantities may exceed the number of components 
+populated on a single PCB.
+
+\begin{table}[h]
+\centering
+\caption{Bill of materials summary for the assembled PCB.}
+\label{tab:bom_summary}
+\small
+\begin{tabular}{|p{2.2cm}|p{3.2cm}|p{1.2cm}|p{2.0cm}|p{2.0cm}|p{2.2cm}|p{1.8cm}|}
+\hline
+\textbf{Designator} & \textbf{Component} & \textbf{Number} & \textbf{Cost per unit} & \textbf{Total cost} & \textbf{Source} & \textbf{Material type} \\\hline
+
+C1,C2 & Capacitor, 0805 & 20 & \$0.004 USD & \$0.08 USD & JLCPCB / LCSC C1705 & Ceramic \\\hline
+C3--C13,C17 & Capacitor, 0805 & 60 & \$0.006 USD & \$0.34 USD & JLCPCB / LCSC C28233 & Ceramic \\\hline
+C14--C16 & Capacitor, 0805 & 15 & \$0.000 USD & \$0.00 USD & JLCPCB / LCSC C15850 & Ceramic \\\hline
+C18,C19 & Capacitor, 0805 & 20 & \$0.007 USD & \$0.13 USD & JLCPCB / LCSC C1796 & Ceramic \\\hline
+R1,R2 & Resistor, 0805 & 10 & \$0.002 USD & \$0.02 USD & JLCPCB / LCSC C17634 & Ceramic \\\hline
+R4,R5 & Resistor, 0805 & 10 & \$0.002 USD & \$0.02 USD & JLCPCB / LCSC C17414 & Ceramic \\\hline
+R6,R7 & Resistor, 0805 & 20 & \$0.002 USD & \$0.04 USD & JLCPCB / LCSC C17594 & Ceramic \\\hline
+R3 & Resistor, 0402 & 5 & \$0.000 USD & \$0.00 USD & JLCPCB / LCSC C11702 & Ceramic \\\hline
+R8,R9 & Resistor, 0402 & 20 & \$0.000 USD & \$0.00 USD & JLCPCB / LCSC C482289 & Ceramic \\\hline
+L1 & Inductor & 5 & \$0.278 USD & \$1.39 USD & JLCPCB / LCSC C42411119 & Other \\\hline
+12MHZ1 & 12 MHz crystal oscillator / resonator & 5 & \$0.350 USD & \$1.75 USD & JLCPCB / LCSC C20625731 & Other \\\hline
+J1,J3,J5 & Right-angle 2$\times$6 header & 15 & \$0.060 USD & \$0.90 USD & JLCPCB / LCSC C60565 & Metal / polymer \\\hline
+J2,J4,J6 & Right-angle 2$\times$6 receptacle/header & 15 & \$0.235 USD & \$3.53 USD & JLCPCB / LCSC C2897426 & Metal / polymer \\\hline
+J9 & Connector & 5 & \$0.170 USD & \$0.85 USD & JLCPCB / LCSC C165948 & Metal / polymer \\\hline
+S1,S2 & Switch & 14 & \$0.000 USD & \$0.00 USD & JLCPCB / LCSC C720477 & Metal / polymer \\\hline
+U1 & Main integrated circuit, QFN package & 5 & \$1.858 USD & \$9.29 USD & JLCPCB / LCSC C42415655 & Semiconductor \\\hline
+U2 & Voltage regulator, SOT-223 package & 5 & \$0.144 USD & \$0.72 USD & JLCPCB / LCSC C108495 & Semiconductor \\\hline
+U3 & Integrated circuit, SOIC-8 package & 5 & \$0.556 USD & \$2.78 USD & JLCPCB / LCSC C97521 & Semiconductor \\\hline
+
+\multicolumn{4}{|r|}{\textbf{Total listed component cost}} & \textbf{\$21.84 USD} & \multicolumn{2}{l|}{} \\\hline
+\end{tabular}
+\end{table}
+
+All components in the bill of materials were selected from parts available 
+through the JLCPCB assembly service. This was done to simplify reproduction 
+of the hardware, since the same fabrication order can include PCB 
+manufacturing, component sourcing, and automated assembly. 
+Passive components such as resistors and capacitors use standard 
+0402 and 0805 footprints where possible, allowing substitution with 
+equivalent values from other suppliers if required. 
+The designators in the bill of materials match the schematic and 
+layout files directly, so each entry can be traced back to the 
+corresponding component in the design files.
