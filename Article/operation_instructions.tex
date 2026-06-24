@@ -1,0 +1,45 @@
+\section{Operation instructions}
+
+\textit{The Everything PMOD board is designed to interface between a Tiny Tapeout demonstration board and external PMOD-compatible peripherals. Depending on the installed daughter board, the hardware can be used to remap signals, monitor digital interfaces, or capture experimental data. The following procedure outlines the general operating sequence. Future revisions of this section should include screenshots of the accompanying control software and photographs illustrating the hardware connections.}
+
+\textit{\subsection*{Hardware setup}}
+
+\textit{\begin{enumerate}
+    \item Inspect the Everything PMOD board, Tiny Tapeout demonstration board, and any attached peripherals for physical damage prior to use.
+    \item Connect the Everything PMOD board to the Tiny Tapeout demonstration board using the designated PMOD connectors, ensuring the connectors are correctly aligned.
+    \item Attach any additional PMOD peripherals, measurement equipment, or prototype hardware required for the experiment.
+    \item Connect the USB cable to the Tiny Tapeout demonstration board and apply power.
+    \item Verify that the expected power indicator LEDs illuminate and that no components become excessively warm during startup.
+\end{enumerate}}
+
+\textit{\subsection*{Software operation}}
+
+\textit{\begin{enumerate}
+    \item Launch the host control software on the connected computer.
+    \item Establish communication with the Everything PMOD board through the USB interface.
+    \item Select the desired operating mode, such as GPIO remapping, signal monitoring, or data capture.
+    \item Configure any experiment-specific settings, including sampling parameters, pin assignments, or protocol options.
+    \item Begin data acquisition or hardware interaction.
+    \item When the experiment is complete, save any captured data before disconnecting the hardware.
+\end{enumerate}}
+
+\textit{\subsection*{Shutdown procedure}}
+
+\textit{\begin{enumerate}
+    \item Stop any active data acquisition or communication sessions.
+    \item Close the host control software.
+    \item Disconnect USB power from the Tiny Tapeout demonstration board.
+    \item Remove any attached PMOD peripherals if required.
+\end{enumerate}}
+
+\textit{\subsection*{Safety considerations}}
+
+\textit{\begin{itemize}
+    \item Ensure that all connected peripherals operate at compatible voltage levels before making electrical connections.
+    \item Do not connect or disconnect PMOD modules while power is applied unless the attached hardware explicitly supports hot-plug operation.
+    \item Avoid short circuits by ensuring conductive objects do not contact exposed PCB traces during operation.
+    \item Follow standard electrostatic discharge (ESD) precautions when handling the hardware.
+    \item The hardware is intended for laboratory development and evaluation and should not be used in safety-critical applications.
+\end{itemize}}
+
+\textit{Future versions of the software are expected to provide graphical configuration of signal routing, real-time visualization of captured digital signals, and automated data logging. This section should be updated to include screenshots and example workflows once the software implementation is complete.}
