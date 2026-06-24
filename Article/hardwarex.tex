@@ -14,6 +14,14 @@
 \usepackage{lmodern}
 
 \usepackage{hyperref}
+
+\usepackage[
+backend=biber,
+style=ieee
+]{biblatex}
+\addbibresource{references.bib}
+
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -63,12 +71,8 @@
 \input{acknowledgements}
 
 \noindent
-\textbf{References}\\
-\noindent 
-\textit{If relevant, you should include a reference to the original publication of the hardware you customized and a reference to the repository in which your design files are published.  Other references can be included, as required; for example, references that put your device in context in the literature. For more information on the reference format in HardwareX please see the \href{https://www.elsevier.com/journals/hardwarex/2468-0672/guide-for-authors}{\underline{Guide for Authors}}.}
-%> Include at least one reference, to the original publication of the hardware you customized.
-%> Include other references as required. Include references to put your device in context in the literature. For more information on the reference format in HardwareX please see the Guide for Authors at: https://www.elsevier.com/journals/hardwarex/2468-0672/guide-for-authors
 
+\input{references}
 
 \end{document}
 
